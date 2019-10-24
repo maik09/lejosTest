@@ -11,7 +11,7 @@ public class Main {
 
 	public static void main(String[] args) 
 	{
-		System.out.println("Test");
+		System.out.println("Tejjst");
 		final EV3LargeRegulatedMotor mA = new EV3LargeRegulatedMotor(MotorPort.A);
         final EV3LargeRegulatedMotor mB = new EV3LargeRegulatedMotor(MotorPort.B);
         final EV3LargeRegulatedMotor mC = new EV3LargeRegulatedMotor(MotorPort.C);
