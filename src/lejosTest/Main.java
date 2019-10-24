@@ -14,8 +14,24 @@ import lejos.hardware.lcd.LCD;
 
 public class Main {
 
-	public void move(int mmsec, Port motorPort) {
+	public static void newSpeed(int mmPerSec, EV3LargeRegulatedMotor motor) {
+		//double radius = 0.02;
+		//double perimm = 2 * Math.PI * radius * 1000;
+		double perimm = 40;
+		double degPerMM = 360 / perimm;
+		motor.setSpeed((int) (degPerMM * mmPerSec));
+	}
+	
+	public static void move(int mm, int mmPerSec, boolean forward, EV3LargeRegulatedMotor motor) {
+		newSpeed(mmPerSec, motor);
 		
+		if (forward)
+			motor.forward();
+		else
+			motor.backward();
+		
+		Delay.msDelay((mm / mmPerSec) * 1000);
+		motor.stop();
 	}
 	
 	public static void main(String[] args) 
@@ -39,9 +55,8 @@ public class Main {
 
         //start
         
-        mConv.setSpeed(500);
-        mConv.forward();
-        
+        move(100, 10, true, mConv);
+        /*
         f.waitForTouch(touch);
         mConv.stop();
         
@@ -51,7 +66,7 @@ public class Main {
         mConv.backward();
         Delay.msDelay(2000);
         mConv.stop();
-
+	*/
 	}
 
 }
