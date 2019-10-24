@@ -19,19 +19,6 @@ public class Main {
         final EV3TouchSensor touch1 = new EV3TouchSensor(SensorPort.S2);
         final SampleProvider sp = touch1.getTouchMode();
         int touchValue = 0;
-
-        /*
-        System.out.println("Motor B");
-        mB.setSpeed(500);
-        mB.forward();
-        Delay.msDelay(DELAY);
-        mB.stop();
-        */
-<<<<<<< HEAD
-        //jewufdifjsök
-=======
-        //umschreiben
->>>>>>> d74297417bbe222780fa7cf3c23a23b51d1bb5a2
         
         mB.setSpeed(500);
         mB.forward();
