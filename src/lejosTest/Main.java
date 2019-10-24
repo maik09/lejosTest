@@ -11,23 +11,20 @@ public class Main {
 
 	public static void main(String[] args) 
 	{
+		Functions f = new Functions();
+		
 		final EV3LargeRegulatedMotor mA = new EV3LargeRegulatedMotor(MotorPort.A);
         final EV3LargeRegulatedMotor mB = new EV3LargeRegulatedMotor(MotorPort.B);
         final EV3LargeRegulatedMotor mC = new EV3LargeRegulatedMotor(MotorPort.C);
+        final EV3LargeRegulatedMotor mC = new EV3LargeRegulatedMotor(MotorPort.D);
 
-        final EV3TouchSensor touch1 = new EV3TouchSensor(SensorPort.S2);
-        final SampleProvider sp = touch1.getTouchMode();
-        int touchValue = 0;
-        
         mB.setSpeed(500);
         mB.forward();
         
-        while (touchValue == 0) {
-            float[] sample = new float[sp.sampleSize()];
-            sp.fetchSample(sample, 0);
-            touchValue = (int) sample[0];
-            //System.out.println(touchValue);
-        }
+        final EV3TouchSensor touch1 = new EV3TouchSensor(SensorPort.S2);
+        f.initTouch(touch1);
+        
+        while (f.getTouchVal() == 0) {}
         mB.stop();
         
         mB.backward();
