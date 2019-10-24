@@ -27,11 +27,7 @@ public class Main {
         Delay.msDelay(DELAY);
         mB.stop();
         */
-<<<<<<< HEAD
-        //jewufdifjsök
-=======
-        //umschreiben
->>>>>>> d74297417bbe222780fa7cf3c23a23b51d1bb5a2
+
         
         mB.setSpeed(500);
         mB.forward();
