@@ -27,7 +27,7 @@ public class Main {
         Delay.msDelay(DELAY);
         mB.stop();
         */
-        
+        //jewufdifjsök
         
         mB.setSpeed(500);
         mB.forward();
