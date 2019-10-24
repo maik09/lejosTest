@@ -7,8 +7,9 @@ public class Functions {
 	
 	private SampleProvider sp;
 	
-	public void initTouch(EV3TouchSensor touch) {
+	public void waitForTouch(EV3TouchSensor touch) {
 		sp = touch.getTouchMode();
+		while (getTouchVal() == 0) {}
 	}
 	
 	public int getTouchVal() {
