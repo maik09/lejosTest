@@ -35,7 +35,7 @@ public class Main {
             float[] sample = new float[sp.sampleSize()];
             sp.fetchSample(sample, 0);
             touchValue = (int) sample[0];
-            System.out.println(touchValue);
+            //System.out.println(touchValue);
         }
         mB.stop();
         
