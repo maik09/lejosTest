@@ -30,8 +30,23 @@ public class Main {
 		else
 			motor.backward();
 		
-		Delay.msDelay((mm / mmPerSec) * 1000);
-		motor.stop();
+		Delay.msDelay((int) (mm / mmPerSec) * 1000);
+	}
+	
+	public static void moveHypo(int x, int y, int mmPerSec, EV3LargeRegulatedMotor mConv, EV3LargeRegulatedMotor mPaper) {
+		move(x, mmPerSec, true, mConv);
+		double percent = 1;
+		if (x > y)
+			percent = y / x;
+		else
+			percent = x / y;
+		
+		move(y,(int) (mmPerSec * percent), true, mPaper);
+		
+		double hypo = Math.sqrt((x*x) + (y*y));
+		Delay.msDelay((int) (hypo / mmPerSec) * 1000);
+		mConv.stop();
+		mPaper.stop();
 	}
 	
 	public static void main(String[] args) 
@@ -55,7 +70,9 @@ public class Main {
 
         //start
         
-        move(100, 10, true, mConv);
+        //move(100, 10, true, mConv);
+        
+        moveHypo(20, 10, 20, mConv, mPaper);
         /*
         f.waitForTouch(touch);
         mConv.stop();
