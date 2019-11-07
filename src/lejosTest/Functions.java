@@ -9,13 +9,12 @@ public class Functions {
 	
 	public void waitForTouch(EV3TouchSensor touch) {
 		sp = touch.getTouchMode();
-		while (getTouchVal() == 0) {}
-	}
-	
-	public int getTouchVal() {
-		float[] sample = new float[sp.sampleSize()];
-        sp.fetchSample(sample, 0);
-        return (int) sample[0];
+		int touchVal = 0;
+		while (touchVal == 0) {
+			float[] sample = new float[sp.sampleSize()];
+	        sp.fetchSample(sample, 0);
+	        touchVal = (int) sample[0];
+		}
 	}
 
 }
