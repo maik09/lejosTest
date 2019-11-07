@@ -8,9 +8,7 @@ import lejos.hardware.port.Port;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3IRSensor;
 import lejos.hardware.sensor.EV3TouchSensor;
-import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
-import lejos.hardware.lcd.LCD;
 
 public class Main {
 
