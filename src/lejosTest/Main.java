@@ -12,8 +12,12 @@ import lejosTest.factories.FactoryProvider;
 import lejosTest.factories.FactoryType;
 import lejosTest.factories.MotorFactory;
 import lejosTest.factories.MotorType;
+import lejosTest.factories.SensorType;
 import lejosTest.motoren.AxisMotor;
 import lejosTest.motoren.Motor;
+import lejosTest.motoren.PenMotor;
+import lejosTest.sensoren.IRSensor;
+import lejosTest.sensoren.TouchSensor;
 import lejos.hardware.lcd.LCD;
 
 public class Main {
@@ -42,8 +46,10 @@ public class Main {
 	}
 	*/
 	
-	public static void moveHypo(int x1, int x2, int y1, int y2, int time, EV3LargeRegulatedMotor mConv, EV3LargeRegulatedMotor mPaper) 
-	{
+	/*
+	
+	public static void moveHypo(int x1, int x2, int y1, int y2, int mmPerSec, EV3LargeRegulatedMotor mConv, EV3LargeRegulatedMotor mPaper) 
+	{	
 		int xdiff = x2 - x1;
 		int ydiff = y2 - y1;
 		
@@ -60,46 +66,36 @@ public class Main {
 	{
 		moveHypo(0, x, 0, y, time, mConv, mPaper);
 	}
-	
+	*/
 	
 	public static void main(String[] args) 
 	{
-		Functions f = new Functions();
-		
-		Port portConv = MotorPort.A;
-		Port portPaper = MotorPort.B;
-		Port portPenLift = MotorPort.C;
-		
-		Port portTouch = SensorPort.S1;
-		Port portIR = SensorPort.S2;
-		
-		final EV3LargeRegulatedMotor mConv = new EV3LargeRegulatedMotor(portConv);
-        final EV3LargeRegulatedMotor mPaper = new EV3LargeRegulatedMotor(portPaper);
-        final EV3LargeRegulatedMotor mPenLift = new EV3LargeRegulatedMotor(portPenLift);
+		FactoryProvider fp = new FactoryProvider();
+        AbstractFactory mf = fp.getFactory(FactoryType.Motor);
+        AbstractFactory sf = fp.getFactory(FactoryType.Sensor);
         
-        final EV3TouchSensor touch = new EV3TouchSensor(portTouch);
-        final EV3IRSensor ir = new EV3IRSensor(portIR);
+        AxisMotor mConv = (AxisMotor) mf.create(MotorType.Axis, MotorPort.A);
+        AxisMotor mPaper = (AxisMotor) mf.create(MotorType.Axis, MotorPort.B);
+        PenMotor mPen = (PenMotor) mf.create(MotorType.Pen, MotorPort.C);
+        
+        TouchSensor tSen = (TouchSensor) sf.create(SensorType.Touch, SensorPort.S1);
+        IRSensor irSen = (IRSensor) sf.create(SensorType.IR, SensorPort.S2);
 		
         //start
         
+        mConv.moveRot(50);
+        
         // X auf 0
-        mConv.setSpeed(500);
-        mConv.forward();
-        f.waitForTouch(touch);
-        mConv.stop();
+       // f.waitForTouch(touch);
         
-        
-        initHypo(50, 80, 5000, mConv, mPaper);
+        //initHypo(50, 80, 5000, mConv, mPaper);
         //moveDelay(100, 10, true, mPaper);
         
         LCD.drawString("Gehe zurueck...", 0, 4);
         Delay.msDelay(1000);
         
         //move(100, 10, false, mConv);
-        FactoryProvider fp = new FactoryProvider();
-        AbstractFactory mf = fp.getFactory(FactoryType.Motor);
-        AxisMotor motor = (AxisMotor) mf.create(MotorType.Axis);
-	
+        
 	}
 
 }
