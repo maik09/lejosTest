@@ -12,11 +12,13 @@ import lejosTest.factories.FactoryProvider;
 import lejosTest.factories.FactoryType;
 import lejosTest.factories.MotorFactory;
 import lejosTest.factories.MotorType;
+import lejosTest.motoren.AxisMotor;
 import lejosTest.motoren.Motor;
 import lejos.hardware.lcd.LCD;
 
 public class Main {
 
+	/*
 	public static void newSpeed(double mmPerSec, EV3LargeRegulatedMotor motor) {
 		//double radius = 0.02;
 		//double perimm = 2 * Math.PI * radius * 1000;
@@ -38,7 +40,7 @@ public class Main {
 		move(mm, mmPerSec, forward, motor);
 		Delay.msDelay((int) (mm / mmPerSec) * 1000);
 	}
-	
+	*/
 	
 	public static void moveHypo(int x1, int x2, int y1, int y2, int time, EV3LargeRegulatedMotor mConv, EV3LargeRegulatedMotor mPaper) 
 	{
@@ -96,7 +98,7 @@ public class Main {
         //move(100, 10, false, mConv);
         FactoryProvider fp = new FactoryProvider();
         AbstractFactory mf = fp.getFactory(FactoryType.Motor);
-        Motor motor = (Motor) mf.create(MotorType.Axis);
+        AxisMotor motor = (AxisMotor) mf.create(MotorType.Axis);
 	
 	}
 
