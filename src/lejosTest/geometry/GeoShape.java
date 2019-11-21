@@ -1,8 +1,20 @@
 package lejosTest.geometry;
 
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
 
-public interface GeoShape {
+public class GeoShape {
 
-	public Point2D getNextPos();
+	ArrayList<Point2D> pos = new ArrayList<Point2D>();
+	
+	public Point2D getNextPos() {
+		Point2D temp = pos.get(0);
+		try {
+			pos.remove(0);
+		}
+		catch (NullPointerException e) {
+			return null;
+		}
+		return temp;
+	}
 }

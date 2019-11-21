@@ -10,6 +10,7 @@ import lejosTest.factories.MotorFactory;
 import lejosTest.factories.MotorType;
 import lejosTest.factories.SensorFactory;
 import lejosTest.factories.SensorType;
+import lejosTest.geometry.GeoShape;
 import lejosTest.motoren.AxisMotor;
 import lejosTest.motoren.PenMotor;
 import lejosTest.sensoren.IRSensor;
@@ -53,6 +54,13 @@ public class Robot {
 		mPen.changeState();
 		geo.triangle(30, -50);
 		mPen.reset();
+	}
+	
+	public void draw(GeoShape g) {
+		
+		while(g.getNextPos() != null) {
+			
+		}
 	}
 	
 }
