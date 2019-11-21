@@ -50,10 +50,8 @@ public class Robot {
 	
 	public void test() {
 		preparePrinter();
-		//geo.line(50, true, true);
 		mPen.changeState();
-		geo.line(40, false, true);
-		//geo.hypo(50, 30);
+		geo.triangle(30, -50);
 		mPen.reset();
 	}
 	

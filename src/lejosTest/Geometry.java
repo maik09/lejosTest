@@ -39,9 +39,10 @@ public class Geometry {
 	public void hypo(int x, int y) {
 		
 		//Speeds
-		double percentage = y/x;
-		int speedX = 10;
+		double percentage = (double) y/x;
+		int speedX = 5;
 		int speedY = (int) (speedX * percentage);
+		System.out.print(speedY);
 		mConv.setSpeed(speedX);
 		mPaper.setSpeed(speedY);
 		
@@ -55,5 +56,12 @@ public class Geometry {
 		mConv.endSynchronization();
 		mConv.waitComplete();
 		mPaper.waitComplete();
+	}
+	
+	public void triangle(int x, int y) {
+		
+		hypo(x, y);
+		line(y, false, false);
+		line(x, true, false);
 	}
 }
