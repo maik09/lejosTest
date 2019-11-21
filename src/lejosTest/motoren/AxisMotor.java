@@ -22,29 +22,6 @@ public class AxisMotor extends EV3LargeRegulatedMotor {
 		super.setSpeed(toDegrees(mm));
 	}
 	
-	/*
-	public void move(int mm, double mmPerSec, boolean forward) {
-		moveInf(mmPerSec, forward);
-		Delay.msDelay((int) (mm / mmPerSec) * 1000);
-	}
-	
-	public void moveInf(double mmPerSec, boolean forward) {
-		newSpeed(mmPerSec, motor);
-		
-		if (forward)
-			motor.forward();
-		else
-			motor.backward();
-	}
-	
-	private void newSpeed(double mmPerSec, EV3LargeRegulatedMotor motor) {
-		//double radius = 0.02;
-		//double perimm = 2 * Math.PI * radius * 1000;
-		double degPerMM = 360 / diameterMM;
-		motor.setSpeed((int) (degPerMM * mmPerSec));
-	}
-	*/
-	
 	public void prepare(Sensor sen) {
 		setSpeed(10);
 		
