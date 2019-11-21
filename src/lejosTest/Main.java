@@ -1,26 +1,5 @@
 package lejosTest;
 
-import lejos.hardware.motor.EV3LargeRegulatedMotor;
-import lejos.hardware.port.MotorPort;
-import lejos.hardware.port.Port;
-import lejos.hardware.port.SensorPort;
-import lejos.hardware.sensor.EV3IRSensor;
-import lejos.hardware.sensor.EV3TouchSensor;
-import lejos.utility.Delay;
-import lejosTest.factories.AbstractFactory;
-import lejosTest.factories.FactoryProvider;
-import lejosTest.factories.FactoryType;
-import lejosTest.factories.MotorFactory;
-import lejosTest.factories.MotorType;
-import lejosTest.factories.SensorType;
-import lejosTest.motoren.AxisMotor;
-import lejosTest.motoren.Motor;
-import lejosTest.motoren.PenMotor;
-//import lejosTest.motoren.RegulatedMotor;
-import lejosTest.sensoren.IRSensor;
-import lejosTest.sensoren.TouchSensor;
-import lejos.hardware.lcd.LCD;
-
 public class Main {
 
 	/*
@@ -84,6 +63,7 @@ public class Main {
 	
 	public static void main(String[] args) 
 	{
+		/*
 		FactoryProvider fp = new FactoryProvider();
         AbstractFactory mf = fp.getFactory(FactoryType.Motor);
         AbstractFactory sf = fp.getFactory(FactoryType.Sensor);
@@ -92,12 +72,15 @@ public class Main {
         AxisMotor mPaper = (AxisMotor) mf.create(MotorType.Axis, MotorPort.B);
         PenMotor mPen = (PenMotor) mf.create(MotorType.Pen, MotorPort.C);
         
-        TouchSensor tSen = (TouchSensor) sf.create(SensorType.Touch, SensorPort.S1);
-        IRSensor irSen = (IRSensor) sf.create(SensorType.IR, SensorPort.S2);
-		
+        TouchSensor tSen = (TouchSensor) sf.create(SensorType.Touch, SensorPort.S2);
+        IRSensor irSen = (IRSensor) sf.create(SensorType.IR, SensorPort.S1);
+		*/
         //start
         
-        mConv.moveRot(50);
+        //mConv.moveRot(50);
+        
+        Robot rob = new Robot();
+        rob.test();
         
         // X auf 0
        // f.waitForTouch(touch);
@@ -105,8 +88,8 @@ public class Main {
         //initHypo(50, 80, 5000, mConv, mPaper);
         //moveDelay(100, 10, true, mPaper);
         
-        LCD.drawString("Gehe zurueck...", 0, 4);
-        Delay.msDelay(1000);
+        //LCD.drawString("Gehe zurueck...", 0, 4);
+        //Delay.msDelay(1000);
         
         //move(100, 10, false, mConv);
         

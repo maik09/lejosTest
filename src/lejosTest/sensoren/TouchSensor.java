@@ -15,13 +15,18 @@ public class TouchSensor extends Sensor {
 	}
 	
 	public void waitForTouch() {
-		sp = touch.getTouchMode();
+		
 		int touchVal = 0;
 		while (touchVal == 0) {
-			float[] sample = new float[sp.sampleSize()];
-	        sp.fetchSample(sample, 0);
-	        touchVal = (int) sample[0];
+	        touchVal = getValue();
 		}
+	}
+	
+	public int getValue() {
+		sp = touch.getTouchMode();
+		float[] sample = new float[sp.sampleSize()];
+        sp.fetchSample(sample, 0);
+        return (int) sample[0];
 	}
 
 }

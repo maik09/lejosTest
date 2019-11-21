@@ -1,26 +1,60 @@
 package lejosTest;
 
 import lejos.hardware.port.MotorPort;
+import lejos.hardware.port.SensorPort;
+import lejos.utility.Delay;
+import lejosTest.factories.AbstractFactory;
 import lejosTest.factories.FactoryProvider;
 import lejosTest.factories.FactoryType;
 import lejosTest.factories.MotorFactory;
 import lejosTest.factories.MotorType;
+import lejosTest.factories.SensorFactory;
+import lejosTest.factories.SensorType;
 import lejosTest.motoren.AxisMotor;
-import lejosTest.motoren.Motor;
+import lejosTest.motoren.PenMotor;
+import lejosTest.sensoren.IRSensor;
+import lejosTest.sensoren.TouchSensor;
 
 public class Robot {
 
-	private AxisMotor m1;
+	private Geometry geo;
+	
+	private AxisMotor mConv;
+	private AxisMotor mPaper;
+	private PenMotor mPen;
+	
+	private TouchSensor tSen;
+	private IRSensor irSen;
 	
 	public Robot() {
 		FactoryProvider fp = new FactoryProvider();
+		
 		MotorFactory mf = (MotorFactory) fp.getFactory(FactoryType.Motor);
-		m1 = (AxisMotor) mf.create(MotorType.Axis, MotorPort.A);
+		mConv = (AxisMotor) mf.create(MotorType.Axis, MotorPort.A);
+		mPaper = (AxisMotor) mf.create(MotorType.Axis, MotorPort.B);
+		mPen = (PenMotor) mf.create(MotorType.Pen, MotorPort.C);
+		
+		SensorFactory sf = (SensorFactory) fp.getFactory(FactoryType.Sensor);
+        tSen = (TouchSensor) sf.create(SensorType.Touch, SensorPort.S2);
+        irSen = (IRSensor) sf.create(SensorType.IR, SensorPort.S1);
+        
+        geo = Geometry.getInstance(mConv, mPaper, mPen);
 	}
 	
-	public void prog1() {
-		m1.move(5, 10, true);
+	public void preparePrinter() {
+		mConv.prepare(tSen);
+		mPaper.prepare(irSen);
+		Delay.msDelay(2000);
+		//mPaper.emitPaper();
 	}
 	
+	public void test() {
+		preparePrinter();
+		//geo.line(50, true, true);
+		mPen.changeState();
+		geo.line(40, false, true);
+		//geo.hypo(50, 30);
+		mPen.reset();
+	}
 	
 }
