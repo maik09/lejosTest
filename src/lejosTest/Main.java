@@ -16,6 +16,7 @@ import lejosTest.factories.SensorType;
 import lejosTest.motoren.AxisMotor;
 import lejosTest.motoren.Motor;
 import lejosTest.motoren.PenMotor;
+//import lejosTest.motoren.RegulatedMotor;
 import lejosTest.sensoren.IRSensor;
 import lejosTest.sensoren.TouchSensor;
 import lejos.hardware.lcd.LCD;
@@ -65,6 +66,19 @@ public class Main {
 	public static void initHypo(int x, int y, int time, EV3LargeRegulatedMotor mConv, EV3LargeRegulatedMotor mPaper) 
 	{
 		moveHypo(0, x, 0, y, time, mConv, mPaper);
+	}
+	*/
+	
+	/*
+	private static void synchroExample() {
+		motor.synchronizeWith(new RegulatedMotor[] { mB });
+
+		mA.startSynchronization();
+		mA.rotate(-360, true);
+		mB.rotate(-360, true);
+		mA.endSynchronization();
+		mA.waitComplete();
+		mB.waitComplete();
 	}
 	*/
 	
