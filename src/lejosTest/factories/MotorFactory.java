@@ -1,6 +1,5 @@
 package lejosTest.factories;
 
-import lejos.hardware.ev3.EV3;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.Port;
 import lejosTest.motoren.AxisMotor;
