@@ -2,24 +2,21 @@ package lejosTest;
 
 import lejos.robotics.RegulatedMotor;
 import lejosTest.motoren.AxisMotor;
-import lejosTest.motoren.PenMotor;
 
 public class Geometry {
 
 	private static Geometry geometry = null;
 	private AxisMotor mConv;
 	private AxisMotor mPaper;
-	private PenMotor mPen;
 	
-	private Geometry(AxisMotor mConv, AxisMotor mPaper, PenMotor mPen) {
+	private Geometry(AxisMotor mConv, AxisMotor mPaper) {
 		this.mConv = mConv;
 		this.mPaper = mPaper;
-		this.mPen = mPen;
 	}
 	
-	public static Geometry getInstance(AxisMotor mConv, AxisMotor mPaper, PenMotor mPen) {
+	public static Geometry getInstance(AxisMotor mConv, AxisMotor mPaper) {
 		if (geometry == null) {
-			geometry = new Geometry(mConv, mPaper, mPen);
+			geometry = new Geometry(mConv, mPaper);
 		}
 		return geometry;
 	}
