@@ -3,14 +3,13 @@ package lejosTest.motoren;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.Port;
 import lejos.utility.Delay;
+import lejosTest.MathHelper;
 import lejosTest.sensoren.IRSensor;
 import lejosTest.sensoren.Sensor;
 import lejosTest.sensoren.TouchSensor;
 
 public class AxisMotor extends EV3LargeRegulatedMotor {
 
-	protected int diameterMM = 39;
-	double degPerMM = 360 / diameterMM;
 	protected int pos;
 	
 	public AxisMotor(Port port) {
@@ -19,11 +18,11 @@ public class AxisMotor extends EV3LargeRegulatedMotor {
 	
 	@Override
 	public void setSpeed(int mm) {
-		super.setSpeed(toDegrees(mm));
+		super.setSpeed(MathHelper.toDegrees(mm));
 	}
 	
 	public void prepare(Sensor sen) {
-		setSpeed(10);
+		setSpeed(30);
 		
 		if (sen instanceof TouchSensor) {
 			TouchSensor tSen = (TouchSensor) sen;
@@ -47,16 +46,13 @@ public class AxisMotor extends EV3LargeRegulatedMotor {
 	}
 	
 	public void emitPaper() {
-		rotate(toDegrees(200));
+		rotate(MathHelper.toDegrees(100));
 	}
 	
 	public void move(int mm) {
-		rotate(toDegrees(mm));
+		rotate(MathHelper.toDegrees(mm));
 	}
 	
-	protected int toDegrees(int mm) {
-		double degree = degPerMM * mm;
-		return (int) degree;
-	}
+	
 	
 }

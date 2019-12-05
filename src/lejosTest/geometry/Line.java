@@ -7,7 +7,7 @@ public class Line extends GeoShape {
 
 	
 	public Line(Point2D x) {
-		pos.add();
+		//pos.add();
 	}
 
 }
