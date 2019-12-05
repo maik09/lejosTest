@@ -59,7 +59,6 @@ public class Geometry {
 	}
 	
 	public void triangle(int x, int y) {
-		
 		hypo(x, y);
 		line(y, false, false);
 		line(x, true, false);
