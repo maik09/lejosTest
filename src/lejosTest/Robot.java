@@ -3,7 +3,6 @@ package lejosTest;
 import lejos.hardware.port.MotorPort;
 import lejos.hardware.port.SensorPort;
 import lejos.utility.Delay;
-import lejosTest.factories.AbstractFactory;
 import lejosTest.factories.FactoryProvider;
 import lejosTest.factories.FactoryType;
 import lejosTest.factories.MotorFactory;
