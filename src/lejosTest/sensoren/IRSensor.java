@@ -1,11 +1,8 @@
 package lejosTest.sensoren;
 
 import lejos.hardware.port.Port;
-import lejos.hardware.port.SensorPort;
-import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.EV3IRSensor;
 import lejos.robotics.SampleProvider;
-import lejos.utility.Delay;
 
 public class IRSensor extends Sensor {
 

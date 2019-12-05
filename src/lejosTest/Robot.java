@@ -38,7 +38,7 @@ public class Robot {
         tSen = (TouchSensor) sf.create(SensorType.Touch, SensorPort.S1);
         irSen = (IRSensor) sf.create(SensorType.IR, SensorPort.S2);
         
-        geo = Geometry.getInstance(mConv, mPaper, mPen);
+        geo = Geometry.getInstance(mConv, mPaper);
 	}
 	
 	public void preparePrinter() {

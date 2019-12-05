@@ -2,7 +2,6 @@ package lejosTest.motoren;
 
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.Port;
-import lejos.utility.Delay;
 import lejosTest.MathHelper;
 import lejosTest.sensoren.IRSensor;
 import lejosTest.sensoren.Sensor;
